@@ -1,0 +1,223 @@
+\documentclass[11pt]{article}
+
+% ---------- Layout ----------
+\usepackage[margin=0.8in, top=0.6in, bottom=0.7in, headsep=10pt]{geometry}
+\usepackage{times}
+\usepackage[skip=3pt]{parskip}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{graphicx}
+
+\hypersetup{
+    colorlinks=false,
+    pdfborder={0 0 0},
+    pdftitle={Week 1 Progress Report},
+    pdfauthor={Aryan Thakkar, Nikkesh Parekh, Hitaksh Thaker, Maitri Parekh}
+}
+
+% ---------- Section styling ----------
+\titleformat{\section}
+  {\normalfont\large\bfseries}
+  {\thesection}{0.6em}{}
+
+\titlespacing*{\section}{0pt}{6.5pt}{2.5pt}
+
+\renewcommand{\thesection}{\arabic{section}}
+
+% ---------- List spacing ----------
+\setlist[itemize]{
+    itemsep=1pt,
+    topsep=2pt,
+    parsep=0pt,
+    leftmargin=1.4em
+}
+
+\setlist[enumerate]{
+    itemsep=1pt,
+    topsep=2pt,
+    parsep=0pt,
+    leftmargin=1.6em
+}
+
+% ---------- Header / footer ----------
+\pagestyle{fancy}
+\fancyhf{}
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\fancyhead[L]{\small\textsc{ECE 501 --- Digital Image Processing}}
+\fancyhead[R]{\small Week 1 Progress Report}
+
+\fancyfoot[L]{\small\textit{Galaxy Morphology Classification --- Week 1}}
+\fancyfoot[R]{\small\thepage}
+
+% ============================================================
+% DOCUMENT
+% ============================================================
+
+\begin{document}
+
+\thispagestyle{fancy}
+
+% ============================================================
+% TITLE BLOCK
+% ============================================================
+
+\begin{center}
+
+\Large\textbf{Morphological Classification of Galaxies\\
+in HST and JWST Images Using Classical DIP}
+
+\vspace{3pt}
+
+\normalsize\textbf{Weekly Progress Report --- Week 1}
+
+\vspace{4pt}
+
+\small
+\textbf{Aryan Thakkar}
+\quad $\cdot$ \quad
+\textbf{Nikkesh Parekh}
+\quad $\cdot$ \quad
+\textbf{Hitaksh Thaker}
+\quad $\cdot$ \quad
+\textbf{Maitri Parekh}
+
+\vspace{3pt}
+
+\small ECE 501 -- Digital Image Processing Course Project
+
+\vspace{2pt}
+
+\small\textbf{Faculty:} Prof. Mehul Raval
+\quad $\cdot$ \quad
+\textbf{TAs:} Apoorva Mehta \quad $\cdot$ \quad Jyoti Triklani \quad $\cdot$ \quad Sagar Chavda
+
+\vspace{3pt}
+
+\small Date: September 12, 2026
+
+\end{center}
+
+\vspace{1pt}
+\hrule height 0.8pt
+\vspace{3pt}
+
+% ============================================================
+% 1. PROBLEM STATEMENT
+% ============================================================
+
+\section{Problem Statement}
+
+The raw data provided by the Hubble Space Telescope (HST) and James Webb Space Telescope (JWST) has detailed information about the morphology of galaxies, but these images pose numerous signal processing issues including photon noise, point-spread-function blur, cosmic ray corruption, and poor contrast in the faint areas of galaxies. There are many galaxies of different morphology types (elliptical, spiral, irregular) in a field of view without any segmentation borders. Current state-of-the-art machine learning solutions for this problem involve massive labeled datasets and provide poor physical interpretability.
+
+The current project poses the challenge of galaxy enhancement and morphological classification as a classical digital image processing problem: given a raw HST/JWST image, restore and enhance it using deterministic signal processing techniques, perform segmentation of individual galaxies and classification into one of the morphological classes based on quantitative analysis of shape and texture only. The problem is purposefully restricted to DIP and not to astrophysics (no modeling of spectra or universe), and to classical techniques and not to machine learning as a demonstration of the expressivity of DIP techniques.
+
+% ============================================================
+% 2. BACKGROUND AND MOTIVATION
+% ============================================================
+
+\section{Background and Motivation}
+
+Various galactic objects have been imaged by both HST and JWST, forming a diverse corpus of comparison
+between optical/UV images obtained by Hubble and highly-sensitive near-infrared images obtained by
+JWST. For this project, traditional (not relying on machine learning methods) DIP techniques including restoration,
+segmentation, and feature extraction will be employed in order to enhance the quality of images obtained from the
+telescope and classify galaxies within them.
+
+It is crucial that images captured by both Hubble and JWST will be analyzed within the process of the project in week 2.
+The data set captured by the telescope providing the best results in terms of segmentation and galaxy classification
+(image resolution, noise, galaxy separability, etc.) will be selected as the primary dataset for further research. It should
+be noted that the use of two different data sets is a methodological choice, not an open problem, because through
+empirical analysis we will find out which imaging can be used better for deterministic DIP galaxy classification. The morphological ground truth will be provided by the citizen science catalogs like Galaxy Zoo.
+
+% ============================================================
+% 3. OBJECTIVES
+% ============================================================
+
+\section{High-Level Project Objectives}
+
+\begin{itemize}
+    \item \textbf{Image Restoration and Enhancement:} Apply classical filtering, deconvolution,
+    and contrast enhancement to raw telescope FITS images to produce analysis-ready frames.
+    \item \textbf{Galaxy Segmentation:} Detect and isolate individual galactic structures
+    within multi-object fields using deterministic thresholding and morphological boundaries.
+    \item \textbf{Morphological Classification:} Classify galaxies into elliptical, spiral,
+    and irregular types using hand-crafted quantitative shape and texture descriptors.
+    \item \textbf{Comparative Instrument Evaluation:} Evaluate and compare Hubble vs.\ JWST
+    imagery to empirically determine the better-performing primary data source.
+    \item \textbf{Validation Against Ground Truth:} Benchmark classification accuracy and
+    segmentation fidelity against established morphological catalogues (e.g., Galaxy Zoo).
+\end{itemize}
+
+% ============================================================
+% 4. SCOPE AND LIMITATIONS
+% ============================================================
+
+\section{Scope and Limitations}
+
+\textbf{Scope:} Deterministic image restoration, source segmentation, shape-texture descriptors, instrumental comparison, and rule-based morphological classification.
+
+\textbf{Out of scope:} Deep learning or trained machine learning models (a permanent project constraint); stellar age, redshift, or cosmological modeling; spectroscopic analysis; and real-time execution.
+
+\textbf{Acceptable limitation:} The classical approach to rule-based classification has the limitation of having a certain upper bound for accuracy as compared to modern approaches based on deep learning.
+
+% ============================================================
+% 5. DATASETS IDENTIFIED
+% ============================================================
+
+\section{Datasets Identified (Preliminary)}
+
+The Mikulski Archive for Space Telescopes (MAST) has been recognized as the main public archive for raw FITS data from HST and JWST. The Galaxy Zoo website will be used to get the data on validation done by crowd sourcing. Initially the images from both telescopes will be analyzed and the main dataset will be decided upon only after comparative evaluation. During Week 1 no data has been downloaded/analyzed.
+
+% ============================================================
+% 6. WEEK 1 SUMMARY / STATUS
+% ============================================================
+
+\section{Week 1 Summary and Status}
+
+\begin{itemize}
+    \item Formal DIP Problem Statement and Comparative Evaluation Methodology is Done.
+    \item Defined top-level goal, scope of the project and non-Machine Learning constraints.
+    \item Identified primary data source (NASA MAST for HST/JWST pictures, Galaxy Zoo for labels).
+    \item \textbf{Status:} No coding and no downloading of data is done during week one.
+\end{itemize}
+
+% ============================================================
+% 7. WEEK 2 OBJECTIVES
+% ============================================================
+
+\section{Objectives for Week 2}
+
+\begin{itemize}
+    \item \textbf{Literature Search on Morphology:} Morphology measures that are classically used such as concentration, asymmetry, smoothness; also astronomical deconvolution and segmentation algorithms.
+    \item \textbf{Exploratory Data Analysis (EDA) on NASA Data Sets:} Perform initial exploratory data analysis using public HST and JWST FITS data sets available on MAST website, investigating the dynamic range, noise levels, backgrounds, and optical/IR artifacts.
+    \item \textbf{Cross-validation Through Alignment:} Alignment of candidate targets with publicly available morphological classifications from Galaxy Zoo.
+\end{itemize}
+
+% ============================================================
+% 8. PLANNED WORK AND TBD LIST FOR WEEK 2
+% ============================================================
+
+\section{Planned Work and TBD List for Week 2}
+
+The following technical tasks are explicitly deferred to Week 2:
+\begin{itemize}
+    \item \textbf{Dataset Acquisition from Both Telescopes:} Download sample multi-band FITS
+    frames for common targets from both Hubble and JWST archives via MAST.
+    \item \textbf{Environment and Toolchain Setup:} Configure Python environment with Astropy
+    (FITS I/O), NumPy/SciPy (computations), and OpenCV (classical image processing).
+    \item \textbf{Mathematical and Algorithmic Approach:} Formulate the governing mathematics
+    and algorithms for image restoration (PSF modeling, deconvolution), segmentation (spatial
+    filtering, thresholding), feature extraction (moment invariants, texture descriptors),
+    and rule-based decision boundaries.
+\end{itemize}
+
+% ============================================================
+% END
+% ============================================================
+
+\end{document}
