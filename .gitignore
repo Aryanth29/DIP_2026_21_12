@@ -5,3 +5,11 @@
 *.aux
 *.log
 *.out
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Large Downloads
+mastDownload/
