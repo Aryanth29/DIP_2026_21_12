@@ -1,0 +1,24 @@
+{
+ "family": "CAS",
+ "C_E": 3.601111538461538,
+ "A_E": 0.1642923076923077,
+ "A_hi": 0.411426923076923,
+ "S_hi": 0.06513461538461539,
+ "mode": "supervised on 26 catalogue galaxies, rule family CAS; LOGO-CV accuracy 73% (balanced 72%)",
+ "saved": "2026-11-13 (Week 12 run, 26 labelled galaxies, 8 HCG groups + SQ)",
+ "n_labelled": 26,
+ "accuracy": 0.7308,
+ "accuracy_kind": "LOGO-CV",
+ "groups_fitted": [
+  "HCG 7",
+  "HCG 16",
+  "HCG 31",
+  "HCG 42",
+  "HCG 59",
+  "HCG 79",
+  "HCG 87",
+  "HCG 90",
+  "Stephan's Quintet"
+ ],
+ "note": "Frozen 2026-11-13 before HCG 18/25/40/46/56/68/88/95/96 were downloaded; apply with run_pipeline.py --rule to test it on groups it has never seen."
+}

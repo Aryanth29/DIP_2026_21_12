@@ -1,0 +1,33 @@
+{
+ "family": "CA",
+ "C_E": 3.5352230769230766,
+ "A_E": 0.2997346153846155,
+ "A_hi": 0.3240269230769232,
+ "S_hi": null,
+ "mode": "supervised on 52 catalogue galaxies, rule family CA; LOGO-CV accuracy 73% (balanced 69%)",
+ "saved": "2026-11-13 11:10",
+ "n_labelled": 52,
+ "accuracy": 0.7308,
+ "accuracy_kind": "LOGO-CV",
+ "groups_fitted": [
+  "HCG 7",
+  "HCG 16",
+  "HCG 18",
+  "HCG 25",
+  "HCG 31",
+  "HCG 40",
+  "HCG 42",
+  "HCG 46",
+  "HCG 56",
+  "HCG 59",
+  "HCG 68",
+  "HCG 79",
+  "HCG 87",
+  "HCG 88",
+  "HCG 90",
+  "HCG 95",
+  "HCG 96",
+  "Stephan's Quintet"
+ ],
+ "note": "Week 12 final rule, frozen 2026-11-13 BEFORE the Week 13 survey (multi-pointing, >=1 labelled member) and HyperLEDA labels were added, and before the neighbour-model change to asymmetry. Apply to groups/galaxies not in groups_fitted, with the Week 12 (legacy) measurement, for a hold-out score."
+}
