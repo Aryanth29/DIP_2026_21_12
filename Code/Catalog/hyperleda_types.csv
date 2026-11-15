@@ -1,0 +1,6 @@
+# Non-Hickson galaxies inside our HST frames with a HyperLEDA morphological type t
+# (atlas.obs-hp.fr/hyperleda, meandata). Built by build_leda_catalog.py. Rule fixed before
+# evaluation: e_t <= 1.5; t <= -1 -> E; 1 <= t <= 7 -> S; t >= 8 -> Irr; else unlabelled.
+# Galaxies within 5.0" of a Hickson/SQ entry or inside half its diameter are excluded. group = field's Hickson group.
+group,galaxy_id,ra,dec,morph_gt,leda_t,leda_e_t,bt,v_helio,alt_name,label_source,match_radius_arcsec
+HCG 31,PGC16582,75.433702,-4.288759,Irr,9.7,1.4,15.49,4011.0,IC0399,HyperLEDA,2.0

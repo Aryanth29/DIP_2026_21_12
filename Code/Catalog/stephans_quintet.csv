@@ -1,0 +1,10 @@
+# Stephan's Quintet (HCG 92) members. Coordinates = SQ_CATALOG (notebook cell 102);
+# morph_gt = 3-class ground truth from NED + Galaxy Zoo 2 (SQ_GROUND_TRUTH, notebook cell 110).
+# Any CSV in this folder with galaxy_id,ra,dec[,morph_gt] is picked up automatically;
+# add one per galaxy group to get named cross-matching + accuracy scoring for it.
+group,galaxy_id,ra,dec,morph_gt,ned_type
+Stephan's Quintet,NGC7317,338.9662,33.9449,E,E4
+Stephan's Quintet,NGC7318A,338.9864,33.9655,Irr,E2 pec
+Stephan's Quintet,NGC7318B,338.9933,33.9658,Irr,SBbc pec
+Stephan's Quintet,NGC7319,339.0148,33.9757,S,SB(s)bc pec
+Stephan's Quintet,NGC7320,339.0141,33.9480,S,SA(s)d
