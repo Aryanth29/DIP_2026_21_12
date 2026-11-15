@@ -1,0 +1,62 @@
+{
+  "_about": "Configuration for galaxy_pipeline.py. Everything here is OPTIONAL: with an empty file the pipeline still discovers and processes every FITS image under data_dir. Keys starting with '_' are comments.",
+  "data_dir": "mastDownload",
+  "output_dir": "../Output/pipeline_output",
+  "catalog_dir": "catalogs",
+  "_exclude": "Glob patterns matched against file name, FITS TARGNAME or field name. M16 (NGC 6611, Pillars of Creation) is a Milky-Way star-forming nebula, not a galaxy field -- dropped from the morphology pipeline in earlier stage.",
+  "exclude": [
+    "NGC6611*",
+    "*j9cs01tzq*"
+  ],
+  "_field_aliases": "Cosmetic display names for fields, matched on TARGNAME / file name. Fields with no alias are named after a catalogue group whose members fall inside them, else after their most common TARGNAME.",
+  "field_aliases": [
+    {
+      "match": [
+        "NGC7173*",
+        "HCG090*",
+        "HCG 90*"
+      ],
+      "name": "HCG 90"
+    },
+    {
+      "match": [
+        "HCG016*",
+        "HCG 16*"
+      ],
+      "name": "HCG 16"
+    },
+    {
+      "match": [
+        "NGC6027*",
+        "HCG079*",
+        "HCG 79*"
+      ],
+      "name": "HCG 79"
+    },
+    {
+      "match": [
+        "HCG87*",
+        "HCG087*",
+        "HCG 87*"
+      ],
+      "name": "HCG 87"
+    }
+  ],
+  "_defaults": "Overrides of galaxy_pipeline.DEFAULTS for every image. neighbour-model run: neighbour_model (subtract smooth models of other objects before measuring) is OFF -- on 73 labelled galaxies it lowered LOGO-CV accuracy from 69.9% to 64.4% (Output/neighbour_model_output/neighbour_model_evaluation.md). Set it true together with measure_legacy to reproduce that comparison. final configuration: max_clipped_frac 0.15 -- a galaxy whose 1.5 r_p aperture is more than 15 % cut off by the frame or a chip gap is flagged unmeasurable (label-free truncation simulation, preregistration.md amendment A1).",
+  "defaults": {
+    "neighbour_model": false,
+    "measure_legacy": false,
+    "max_clipped_frac": 0.15
+  },
+  "_instrument_overrides": "Applied to every image taken with this INSTRUME (or INSTRUME/DETECTOR). Values for WFPC2 are the ones that were tuned on the HCG 16 WFPC2/PC mosaic in earlier stage (older, noisier chips, diffraction-spike/bleed-inflated stars, mosaic footprint); keyed by instrument so every WFPC2 frame (HCG 16, 79, 87, ...) gets them, not one named target.",
+  "instrument_overrides": {
+    "WFPC2": {
+      "k_hi": 25.0,
+      "min_area_px": 60,
+      "area_max_px": 5000,
+      "weight_frac_thresh": 0.05
+    }
+  },
+  "_field_overrides": "Per-field overrides (glob on field name). Use only when a field genuinely needs it.",
+  "field_overrides": {}
+}
